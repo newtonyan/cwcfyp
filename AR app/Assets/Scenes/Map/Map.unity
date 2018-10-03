@@ -1757,7 +1757,7 @@ MonoBehaviour:
   _userHeadingSmoothing: {fileID: 220800748}
   _deviceOrientationSmoothing: {fileID: 1847491333}
   _editorDebuggingOnly:
-    _mockUnityInputLocation: 1
+    _mockUnityInputLocation: 0
     _locationLogFile: {fileID: 4900000, guid: 5e6bb7224cef35c4788a4817b1c9778d, type: 3}
 --- !u!1 &1167960364
 GameObject:
