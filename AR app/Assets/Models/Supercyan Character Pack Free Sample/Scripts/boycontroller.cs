@@ -6,10 +6,13 @@ public class boycontroller : MonoBehaviour {
 
     static Animator anim;
     public float speed = 2.0f;
-    public float rotationSpeed = 75.0f; 
+    public float rotationSpeed = 75.0f;
+    public Transform[] target;
 
-	// Use this for initialization
-	void Start () {
+    private int current;
+
+    // Use this for initialization
+    void Start () {
 
         anim = GetComponent<Animator>();
 		
@@ -17,23 +20,14 @@ public class boycontroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-
-        transform.Translate(0, 0, translation);
-        transform.Rotate(0, rotation, 0);
-
-        if (translation != 0)
+        if (transform.position != target[current].position)
         {
-            anim.SetBool("IsWalking", true);
+            Vector3 direction = target[current].position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);
+            GetComponent<Rigidbody>().MovePosition(pos);
         }
-        else
-        {
-            anim.SetBool("IsWalking", false);
-        }
-
+        else current = (current + 1) % target.Length;
     }
 }
