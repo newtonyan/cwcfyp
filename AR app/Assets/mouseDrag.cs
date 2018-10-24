@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class mouseDrag : MonoBehaviour {
+    Vector3 dist;
+    float posX;
+    float posY;
 
-    float distance = 10;
-
+    void OnMouseDown()
+    {
+        dist = Camera.main.WorldToScreenPoint(transform.position);
+        posX = Input.mousePosition.x - dist.x;
+        posY = Input.mousePosition.y - dist.y;
+    }
     void OnMouseDrag()
     {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x-posX, Input.mousePosition.y-posY, dist.z);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         transform.position = objPosition;
