@@ -15,6 +15,7 @@ public class mouseDrag : MonoBehaviour {
     }
     void OnMouseDrag()
     {
+        GetComponent<moverandomly>().enabled = false;
         Vector3 mousePosition = new Vector3(Input.mousePosition.x-posX, Input.mousePosition.y-posY, dist.z);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
