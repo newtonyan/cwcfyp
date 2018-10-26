@@ -44,7 +44,7 @@ public class moverandomly : MonoBehaviour {
 
         while (!validPath)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(1f);
             GetNewPath();
             validPath = navMeshAgent.CalculatePath(target, path);
         }
