@@ -53,6 +53,7 @@ public class lifebar : MonoBehaviour {
         {
             //Debug.Log("Pass through " + "Last= " + lastFrame + "This= " + thisFrame);
             Globallifebar.health--;
+            Debug.Log(Globallifebar.health);
         }
         lastFrame = thisFrame;
     }

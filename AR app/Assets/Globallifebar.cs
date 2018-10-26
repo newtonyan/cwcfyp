@@ -7,9 +7,15 @@ public class Globallifebar : MonoBehaviour {
     public static int health = 5;
     public Sprite[] HeartSprites;
     public Image HeartUI;
-
-	// Update is called once per frame
-	void Update () {
+    public Text Gameover;
+    // Update is called once per frame
+    void Update () {
         HeartUI.sprite = HeartSprites[health];
+        if(health == 0)
+        {
+            Time.timeScale = 0;
+            Debug.Log("Dead");
+            Gameover.text = "Game Over!";
+        }
     }
 }
