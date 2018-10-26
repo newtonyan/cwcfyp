@@ -1,15 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class lifebar : MonoBehaviour {
-
-    public Sprite[] HeartSprites;
-    public Image HeartUI;
     public GameObject PillarA;
     public GameObject PillarB;
-    private int health = 3;
     private int lastFrame = 0; // 0 if position < line, 1 if position >= line
     private int thisFrame = 0;
     private int isInitial = 1; 
@@ -44,22 +40,21 @@ public class lifebar : MonoBehaviour {
         if (pos.z < posA.z)
         {
             thisFrame = 0;
+            //Debug.Log("This Frame: " + thisFrame +" at" + pos.z);
         }
         else
         {
             thisFrame = 1;
+            //Debug.Log("This Frame: " + thisFrame + " at" + pos.z);
         }
 
         //if (pos.z == posA.z && pos.x > posA.x && pos.x > posB.x)
         if(thisFrame != lastFrame && pos.x > posA.x && pos.x < posB.x)
         {
-            health--;
+            //Debug.Log("Pass through " + "Last= " + lastFrame + "This= " + thisFrame);
+            Globallifebar.health--;
         }
-        HeartUI.sprite = HeartSprites[health];
         lastFrame = thisFrame;
-        Debug.Log(thisFrame);
-        Debug.Log(pos.z);
-        //Debug.Log("lastFrame = "lastFrame);
     }
         
     
