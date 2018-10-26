@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class startandpausegame : MonoBehaviour {
 
-    bool isPaused = true;
     public int initTrackStatus = 0;
     public int PreTrackStatus = 0;
     public Button restartButton;
@@ -31,18 +30,9 @@ public class startandpausegame : MonoBehaviour {
 
     }
 
-    public void pauseGame()
+    public void startgame()
     {
-        if (isPaused)
-        {
-            Time.timeScale = 1;
-            isPaused = false;
-        }
-        else
-        {
-            Time.timeScale = 0;
-            isPaused = true;
-        }
+        Time.timeScale = 1;
     }
 
     

@@ -683,7 +683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 67, y: -188}
+  m_AnchoredPosition: {x: 67, y: -214}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &178072831
@@ -726,7 +726,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 178072834}
-        m_MethodName: pauseGame
+        m_MethodName: startgame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initTrackStatus: 0
   PreTrackStatus: 0
-  restartButton: {fileID: 0}
+  restartButton: {fileID: 178072831}
 --- !u!1001 &185170566
 Prefab:
   m_ObjectHideFlags: 0
@@ -3186,7 +3186,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1203748260}
   - component: {fileID: 1203748261}
-  - component: {fileID: 1203748262}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3246,20 +3245,6 @@ MonoBehaviour:
   - {fileID: 21300010, guid: de8d0118788a2b145b9060a3220f22e9, type: 3}
   - {fileID: 21300008, guid: de8d0118788a2b145b9060a3220f22e9, type: 3}
   HeartUI: {fileID: 413150883}
---- !u!114 &1203748262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203748259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fdfd2dd4fa0f744685caecd3984d275, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initTrackStatus: 0
-  PreTrackStatus: 0
-  restartButton: {fileID: 178072831}
 --- !u!1 &1327202823
 GameObject:
   m_ObjectHideFlags: 0
