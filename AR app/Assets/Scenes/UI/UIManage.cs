@@ -19,28 +19,30 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject AchievementButton;
     [SerializeField] private GameObject MissionButton;
     [SerializeField] private GameObject ProfileBadge;
-    [SerializeField] private GameObject PregameButton;
+    //[SerializeField] private GameObject PregameButton;
+    [SerializeField] private Canvas MainCanvas;
+    [SerializeField] private GameObject Map;
 
 
-    private void Awake()
-    {
-        Assert.IsNotNull(credittext);
-        Assert.IsNotNull(leveltext);
-        Assert.IsNotNull(mission);
-        Assert.IsNotNull(achievement);
-        Assert.IsNotNull(setting);
-        Assert.IsNotNull(pregame);
-        Assert.IsNotNull(story);
-        Assert.IsNotNull(SettingButton);
-        Assert.IsNotNull(AchievementButton);
-        Assert.IsNotNull(MissionButton);
-        Assert.IsNotNull(ProfileBadge);
-        Assert.IsNotNull(PregameButton);
+    /* private void Awake()
+     {
+         Assert.IsNotNull(credittext);
+         Assert.IsNotNull(leveltext);
+         Assert.IsNotNull(mission);
+         Assert.IsNotNull(achievement);
+         Assert.IsNotNull(setting);
+         Assert.IsNotNull(pregame);
+         Assert.IsNotNull(story);
+         Assert.IsNotNull(SettingButton);
+         Assert.IsNotNull(AchievementButton);
+         Assert.IsNotNull(MissionButton);
+         Assert.IsNotNull(ProfileBadge);
+         Assert.IsNotNull(PregameButton);
 
 
-        // ensure all variables sets and not run into any null areas
-    }
 
+     }
+ */
     public void updateLevel(int level)
     {
         leveltext.text = level.ToString();
@@ -72,14 +74,11 @@ public class UIManage : MonoBehaviour
         story.SetActive(!story.activeSelf);
     }
 
+
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            //Select Stage
-            if (hit.transform.name == "PregameButton" && Input.GetMouseButtonDown(0)&& !setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
+       if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
+            if (!setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
             {
                 Debug.Log("diu");
                 pregame.SetActive(!pregame.activeSelf);
@@ -87,10 +86,16 @@ public class UIManage : MonoBehaviour
                 AchievementButton.SetActive(!AchievementButton.activeSelf);
                 MissionButton.SetActive(!MissionButton.activeSelf);
                 ProfileBadge.SetActive(!ProfileBadge.activeSelf);
-                PregameButton.SetActive(!PregameButton.activeSelf);
+                Map.SetActive(!Map.activeSelf);
+                //PregameButton.SetActive(!PregameButton.activeSelf);
+                CheckPoint.CallFunction = false;
+            
             }
         }
-    }
+        
+       
+   
+
 
     public void togglePregame()
     {
@@ -99,12 +104,10 @@ public class UIManage : MonoBehaviour
         AchievementButton.SetActive(!AchievementButton.activeSelf);
         MissionButton.SetActive(!MissionButton.activeSelf);
         ProfileBadge.SetActive(!ProfileBadge.activeSelf);
-        PregameButton.SetActive(!PregameButton.activeSelf);
+        Map.SetActive(!Map.activeSelf);
+        //PregameButton.SetActive(!PregameButton.activeSelf);
     }
 
-    public void toggleNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+
 
 }
