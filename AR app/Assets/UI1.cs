@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class UI1 : MonoBehaviour
 {
 
-    private int time = 12;
+    public int time = 12;
     bool counting = true;
 
     [SerializeField] private GameObject Male1;

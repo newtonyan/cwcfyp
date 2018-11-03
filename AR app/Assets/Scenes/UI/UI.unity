@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25f24017ac1c414dbb2e977a7f25d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 11
   Male1: {fileID: 1551253273}
 --- !u!1 &1551253273 stripped
 GameObject:
@@ -391,7 +392,7 @@ RectTransform:
   m_GameObject: {fileID: 1580048176}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 5.1885, y: 5.1885, z: 0}
+  m_LocalScale: {x: 11.040809, y: 11.040809, z: 0}
   m_Children: []
   m_Father: {fileID: 948664954}
   m_RootOrder: 0

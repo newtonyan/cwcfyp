@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UI/UI.unity
+    guid: 094596a4593f14bc39a328b5349e6a18
+  - enabled: 1
+    path: Assets/Scenes/Map/Map.unity
+    guid: ef2144d9e4165574595130881147e841
+  - enabled: 1
     path: Assets/Scenes/Game - Door (AR).unity
     guid: b33c7d0a63910e84fb6221fafe32a5f2
   m_configObjects: {}

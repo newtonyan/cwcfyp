@@ -80,7 +80,7 @@ public class UIManage : MonoBehaviour
        if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
             if (!setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
             {
-                Debug.Log("diu");
+                Debug.Log("CWC");
                 pregame.SetActive(!pregame.activeSelf);
                 SettingButton.SetActive(!SettingButton.activeSelf);
                 AchievementButton.SetActive(!AchievementButton.activeSelf);
@@ -108,6 +108,10 @@ public class UIManage : MonoBehaviour
         //PregameButton.SetActive(!PregameButton.activeSelf);
     }
 
+    public void toggleNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
 
 }
