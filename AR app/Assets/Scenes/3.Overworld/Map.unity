@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -307,7 +307,7 @@ Prefab:
     - target: {fileID: 224347452174058176, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -8.4481
+      value: -8.44809
       objectReference: {fileID: 0}
     - target: {fileID: 1817497693164566, guid: 6ffb38d682187e04abbf4b1479a94609, type: 2}
       propertyPath: m_IsActive
@@ -892,7 +892,7 @@ Prefab:
     - target: {fileID: 224971403329326698, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6191695
+      value: 0.61917114
       objectReference: {fileID: 0}
     - target: {fileID: 224475939208492438, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
@@ -902,7 +902,7 @@ Prefab:
     - target: {fileID: 224475939208492438, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6191695
+      value: 0.61917114
       objectReference: {fileID: 0}
     - target: {fileID: 224579713372574444, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
@@ -912,7 +912,7 @@ Prefab:
     - target: {fileID: 224579713372574444, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6191695
+      value: 0.61917114
       objectReference: {fileID: 0}
     - target: {fileID: 224347452174058176, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
@@ -927,7 +927,7 @@ Prefab:
     - target: {fileID: 224548686718370012, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6191695
+      value: 0.61917114
       objectReference: {fileID: 0}
     - target: {fileID: 224927347244447654, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
@@ -937,7 +937,11 @@ Prefab:
     - target: {fileID: 224927347244447654, guid: 6ffb38d682187e04abbf4b1479a94609,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6191695
+      value: 0.61917114
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196099615424064, guid: 6ffb38d682187e04abbf4b1479a94609, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffb38d682187e04abbf4b1479a94609, type: 2}
@@ -949,6 +953,31 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.materials.Array.data[0].Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.materials.Array.data[1].Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4929577200306490, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -995,12 +1024,12 @@ Prefab:
         type: 2}
       propertyPath: _deviceLocationProviderUnity
       value: 
-      objectReference: {fileID: 1622604238}
+      objectReference: {fileID: 1945672898}
     - target: {fileID: 114028671412199616, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _editorLocationProvider
       value: 
-      objectReference: {fileID: 1622604238}
+      objectReference: {fileID: 1945672898}
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.locationPrefabList.Array.data[0].coordinates.Array.data[0]
@@ -1020,27 +1049,259 @@ Prefab:
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.colorStyleColor.r
-      value: 0.21337666
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.colorStyleColor.g
-      value: 0.2248983
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].materialOptions.colorStyleColor.b
-      value: 0.3301887
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 114473633515234332, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _latitudeLongitude.Array.data[0]
-      value: ' 22.414495, 114.209998'
+      value: 22.425582, 114.206504
       objectReference: {fileID: 0}
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].extrusionOptions.extrusionType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _imagery._layerProperty.sourceType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _options.tileMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b30ccf154bcf7c24297c0df193a984fd, type: 2}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.sublayerName
+      value: Roads
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.geometryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.layerName
+      value: road
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.snapToTerrain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.lineWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions._selectedLayerName
+      value: road
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions._selectedLayerName
+      value: road
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.propertyName
+      value: height
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.propertyDescription
+      value: Number. Height of building or part of building.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.maximumHeight
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.extrusionScaleFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.materials.Array.data[0].Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 521ec9fdf11cd964989d25463314d856, type: 2}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.materials.Array.data[1].Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 521ec9fdf11cd964989d25463314d856, type: 2}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.atlasInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 414754d7155df47beb52ca117a774f21,
+        type: 2}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.colorStyleColor.r
+      value: 0.21337666
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.colorStyleColor.g
+      value: 0.2248983
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.colorStyleColor.b
+      value: 0.3301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.colorStyleColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].materialOptions.colorPalette
+      value: 
+      objectReference: {fileID: 11400000, guid: 57bdfa37edf7a4f7f999d19443497554,
+        type: 2}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].buildingsWithUniqueIds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].presetFeatureType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.extrusionType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].extrusionOptions.extrusionGeometryType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.combineMeshes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].colliderOptions.colliderType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[0].KeyDescription
+      value: 'One of: ''motorway'', ''motorway_link'', ''trunk'', ''primary'', ''secondary'',
+        ''tertiary'', ''link'', ''street'', ''street_limited'', ''pedestrian'', ''construction'',
+        ''track'', ''service'', ''ferry'', ''path'', ''golf'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[0].Key
+      value: class
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[1].Key
+      value: class
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[1].KeyDescription
+      value: 'One of: ''motorway'', ''motorway_link'', ''trunk'', ''primary'', ''secondary'',
+        ''tertiary'', ''link'', ''street'', ''street_limited'', ''pedestrian'', ''construction'',
+        ''track'', ''service'', ''ferry'', ''path'', ''golf'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[2].Key
+      value: class
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[2].KeyDescription
+      value: 'One of: ''motorway'', ''motorway_link'', ''trunk'', ''primary'', ''secondary'',
+        ''tertiary'', ''link'', ''street'', ''street_limited'', ''pedestrian'', ''construction'',
+        ''track'', ''service'', ''ferry'', ''path'', ''golf'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[3].Key
+      value: class
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[3].KeyDescription
+      value: 'One of: ''motorway'', ''motorway_link'', ''trunk'', ''primary'', ''secondary'',
+        ''tertiary'', ''link'', ''street'', ''street_limited'', ''pedestrian'', ''construction'',
+        ''track'', ''service'', ''ferry'', ''path'', ''golf'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[4].Key
+      value: class
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[4].KeyDescription
+      value: 'One of: ''motorway'', ''motorway_link'', ''trunk'', ''primary'', ''secondary'',
+        ''tertiary'', ''link'', ''street'', ''street_limited'', ''pedestrian'', ''construction'',
+        ''track'', ''service'', ''ferry'', ''path'', ''golf'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[0].PropertyValue
+      value: street
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[1].PropertyValue
+      value: path
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[2].PropertyValue
+      value: pedestrian
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[3].PropertyValue
+      value: service
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].filterOptions.filters.Array.data[4].PropertyValue
+      value: primary
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].extrusionOptions.maximumHeight
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
@@ -1331,12 +1592,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1622604238 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114425705658312912, guid: f4bbffa8a3379874d96f9799db9fa8a5,
-    type: 2}
-  m_PrefabInternal: {fileID: 661534164}
-  m_Script: {fileID: 11500000, guid: 0a38712e93231418a84665190b8473d0, type: 3}
 --- !u!21 &1732590105
 Material:
   serializedVersion: 6
@@ -1480,3 +1735,9 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866063608}
   m_CullTransparentMesh: 0
+--- !u!114 &1945672898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114473633515234332, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 661534164}
+  m_Script: {fileID: 11500000, guid: 6b5c815d91f9d4c3690891f3ed4c3162, type: 3}
