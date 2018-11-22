@@ -113,6 +113,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &106296109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1660964591611014, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 661534164}
+--- !u!4 &106296110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4710497146886272, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 661534164}
+--- !u!114 &106296111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106296109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b91599c125648e6b7d13ef8d0052d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToRotate: {fileID: 106296110}
+  _multiplier: 1
 --- !u!1 &199878594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1056,7 @@ Prefab:
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
       propertyPath: _vectorData._layerProperty.locationPrefabList.Array.data[0].coordinates.Array.data[0]
-      value: 22.425582, 114.206504
+      value: 22.425882, 114.206504
       objectReference: {fileID: 0}
     - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
         type: 2}
@@ -1303,6 +1326,51 @@ Prefab:
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].extrusionOptions.maximumHeight
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _options.extentOptions.rangeAroundTransformOptions.visibleBuffer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851672028867622, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: _options.extentOptions.rangeAroundTransformOptions.disposeBuffer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435239138941782, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.42261827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435239138941782, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9063079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435239138941782, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435239138941782, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435239138941782, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 20701373863724720, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 20701373863724720, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534650178719150, guid: f4bbffa8a3379874d96f9799db9fa8a5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4bbffa8a3379874d96f9799db9fa8a5, type: 2}
   m_IsPrefabAsset: 0
@@ -1551,7 +1619,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1560,9 +1628,9 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0
+    m_Strength: 0.15
     m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_NormalBias: 0
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
