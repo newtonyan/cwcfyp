@@ -15,12 +15,15 @@ public class Spawner : MonoBehaviour {
     int randEnermy;
     // Use this for initialization
     void Start () {
+        
         StartCoroutine(waitSpawner());
-		
-	}
+        
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        
         spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
 		
 	}
@@ -32,7 +35,10 @@ public class Spawner : MonoBehaviour {
         {
             randEnermy = 0;
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z));
-            Instantiate (enemies[randEnermy], spawnPosition + transform.TransformPoint(0,0,0), gameObject.transform.rotation);
+            if ((spawnPosition.x >= 7 || spawnPosition.x <= -13) && (spawnPosition.z <= -29 || spawnPosition.z >= -7))
+            {
+                Instantiate(enemies[randEnermy], spawnPosition, gameObject.transform.rotation);
+            }
             yield return new WaitForSeconds(spawnWait);
         }
     }
