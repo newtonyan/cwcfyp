@@ -9,19 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420705c61d1b6435c8aa7b1cbd0ce80a, type: 3}
-  m_Name: LocationGameSpawnTreeModifier
+  m_Name: SpawnInsideModifierTree
   m_EditorClassIdentifier: 
   Active: 1
-  _spawnRateInSquareMeters: 5
-  _maxSpawn: 10
+  _spawnRateInSquareMeters: 20
+  _maxSpawn: 1000
   _prefabs:
-  - {fileID: 100000, guid: 0001ef2c9558aba49a7eb3ef1ad3b64d, type: 3}
-  - {fileID: 100000, guid: 1f1d790200b479d44b71528a4d59cf95, type: 3}
   - {fileID: 100000, guid: d7c673489ae779f4981703d07a67fa6d, type: 3}
-  - {fileID: 100000, guid: eb1cfc8303f4f584c8f43c4af9226acd, type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 512
-  _scaleDownWithWorld: 1
-  _randomizeScale: 1
-  _randomizeRotation: 1
+    m_Bits: 0
+  _scaleDownWithWorld: 0
+  _randomizeScale: 0
+  _randomizeRotation: 0
