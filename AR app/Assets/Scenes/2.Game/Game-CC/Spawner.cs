@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public GameObject[] enemies;
+    public GameObject enemies;
     public Vector3 spawnValues;
     public float spawnWait;
     public float spawnMostWait;
@@ -34,12 +34,17 @@ public class Spawner : MonoBehaviour {
         while (!stop)
         {
             randEnermy = 0;
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z));
-            if ((spawnPosition.x >= 7 || spawnPosition.x <= -13) && (spawnPosition.z <= -29 || spawnPosition.z >= -7))
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(1, 5), Random.Range(-spawnValues.z, spawnValues.z));
+            if ((spawnPosition.x >= -12 && spawnPosition.x <= 12) && (spawnPosition.z <= 12 && spawnPosition.z >= -12))
             {
-                Instantiate(enemies[randEnermy], spawnPosition, gameObject.transform.rotation);
+                yield return new WaitForSeconds(spawnWait);
             }
-            yield return new WaitForSeconds(spawnWait);
+            else
+            {
+                Instantiate(enemies, spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+                enemies.SetActive(true);
+                yield return new WaitForSeconds(spawnWait);
+            }
         }
     }
 }

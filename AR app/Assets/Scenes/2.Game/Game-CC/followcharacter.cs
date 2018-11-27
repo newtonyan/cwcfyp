@@ -20,11 +20,13 @@ public class followcharacter : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
             agent.SetDestination(target.position);
         Facetarget();
-        if (distance<= lookradius)
+        if (distance<= lookradius && distance != 0)
         {
             GloballifebarCC.health--;
             Debug.Log(GloballifebarCC.health);
             objecttodiable.SetActive(false);
+            transform.position = transform.TransformPoint(1000, 1000, 1000);
+            objecttodiable.SetActive(true);
         }
     }
     void Facetarget()
