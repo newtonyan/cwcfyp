@@ -1942,8 +1942,8 @@ MonoBehaviour:
   - {fileID: 1938811814}
   spawnValues: {x: 24, y: 1, z: 24}
   spawnWait: 0
-  spawnMostWait: 1.5
-  spawnLeastWait: 1
+  spawnMostWait: 3
+  spawnLeastWait: 2
   startWait: 3
   stop: 0
 --- !u!4 &1824141213
@@ -2410,6 +2410,10 @@ Prefab:
     - target: {fileID: 100076, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
