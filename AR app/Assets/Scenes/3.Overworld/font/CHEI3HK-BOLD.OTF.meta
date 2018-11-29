@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e4a1744cf113994799d3e46a7c45d99
+guid: 223c63038cfe0234e84f40531f5e5356
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Source Sans Pro
+  fontName: CHei3HK
   fontNames:
-  - Source Sans Pro
+  - CHei3HK
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
