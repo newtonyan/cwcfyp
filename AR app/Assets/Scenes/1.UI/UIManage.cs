@@ -23,20 +23,29 @@ public class UIManage : MonoBehaviour
     [SerializeField] private Canvas MainCanvas;
     [SerializeField] private GameObject Map;
 
+    [SerializeField] private AudioClip buttonSound;
+    private AudioSource audioSource;
 
     private void Awake()
      {
-         Assert.IsNotNull(credittext);
-         Assert.IsNotNull(leveltext);
-         Assert.IsNotNull(mission);
-         Assert.IsNotNull(achievement);
-         Assert.IsNotNull(setting);
-         Assert.IsNotNull(pregame);
-         Assert.IsNotNull(story);
-         Assert.IsNotNull(SettingButton);
-         Assert.IsNotNull(AchievementButton);
-         Assert.IsNotNull(MissionButton);
-         Assert.IsNotNull(ProfileBadge);
+        audioSource = GetComponent<AudioSource>();
+
+
+        Assert.IsNotNull(credittext);
+        Assert.IsNotNull(leveltext);
+
+        Assert.IsNotNull(mission);
+        Assert.IsNotNull(achievement);
+        Assert.IsNotNull(setting);
+        Assert.IsNotNull(pregame);
+        Assert.IsNotNull(story);
+        Assert.IsNotNull(SettingButton);
+        Assert.IsNotNull(AchievementButton);
+        Assert.IsNotNull(MissionButton);
+        Assert.IsNotNull(ProfileBadge);
+
+        Assert.IsNotNull(buttonSound);
+        Assert.IsNotNull(audioSource);
      }
 
     public void updateLevel()
@@ -68,6 +77,12 @@ public class UIManage : MonoBehaviour
     public void toggleStory()
     {
         story.SetActive(!story.activeSelf);
+    }
+
+    public void ButtonClicked()
+    {
+        audioSource.PlayOneShot(buttonSound);
+        toggleSetting();
     }
 
 
