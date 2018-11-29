@@ -10,6 +10,7 @@ public class UIManage : MonoBehaviour
 
     [SerializeField] private Text credittext;
     [SerializeField] private Text leveltext;
+
     [SerializeField] private GameObject mission;
     [SerializeField] private GameObject achievement;
     [SerializeField] private GameObject setting;
@@ -19,12 +20,11 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject AchievementButton;
     [SerializeField] private GameObject MissionButton;
     [SerializeField] private GameObject ProfileBadge;
-    //[SerializeField] private GameObject PregameButton;
     [SerializeField] private Canvas MainCanvas;
     [SerializeField] private GameObject Map;
 
 
-    /* private void Awake()
+    private void Awake()
      {
          Assert.IsNotNull(credittext);
          Assert.IsNotNull(leveltext);
@@ -37,12 +37,8 @@ public class UIManage : MonoBehaviour
          Assert.IsNotNull(AchievementButton);
          Assert.IsNotNull(MissionButton);
          Assert.IsNotNull(ProfileBadge);
-         Assert.IsNotNull(PregameButton);
-
-
-
      }
- */
+
     public void updateLevel(int level)
     {
         leveltext.text = level.ToString();
