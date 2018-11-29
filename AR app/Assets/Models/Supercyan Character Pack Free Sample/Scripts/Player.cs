@@ -10,6 +10,11 @@ public class Player : MonoBehaviour {
     [SerializeField] private List<GameObject> collectables = new List<GameObject>();
     private int lvl = 1;
 
+    public int Lvl
+    {
+        get { return lvl; }
+    }
+
     public int Credit
     {
         get { return credit; }

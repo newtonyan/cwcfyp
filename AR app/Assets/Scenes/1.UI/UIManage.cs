@@ -39,14 +39,14 @@ public class UIManage : MonoBehaviour
          Assert.IsNotNull(ProfileBadge);
      }
 
-    public void updateLevel(int level)
+    public void updateLevel()
     {
-        leveltext.text = level.ToString();
+        leveltext.text = CUHKGameManager.Instance.CurrentPlayer.Lvl.ToString();
     }
 
-    public void updatecredit(int currentcredit, int requiredcredit)
+    public void updateCredit()
     {
-        credittext.text = currentcredit.ToString() + "/" + requiredcredit.ToString();
+        credittext.text = CUHKGameManager.Instance.CurrentPlayer.Credit.ToString() + "/" + CUHKGameManager.Instance.CurrentPlayer.RequiredCredit.ToString();
     }
 
     public void toggleMission()
@@ -71,7 +71,7 @@ public class UIManage : MonoBehaviour
     }
 
 
-    void Update()
+    private void Update()
     {
        if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
             if (!setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
@@ -87,12 +87,10 @@ public class UIManage : MonoBehaviour
                 CheckPoint.CallFunction = false;
             
             }
-        }
+        updateLevel();
+        updateCredit();
+    }
         
-       
-   
-
-
     public void togglePregame()
     {
         pregame.SetActive(!pregame.activeSelf);
@@ -109,5 +107,5 @@ public class UIManage : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-
+    
 }
