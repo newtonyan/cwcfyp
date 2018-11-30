@@ -4,20 +4,50 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    [SerializeField] private int xp = 0;
-    [SerializeField] private int requiredXp = 100;
+    [SerializeField] private int credit = 0;
+    [SerializeField] private int requiredCredit = 123;
     [SerializeField] private int levelBase = 100;
-    [SerializeField] private List<GameObject> droids = new List<GameObject>();
+    [SerializeField] private List<GameObject> collectables = new List<GameObject>();
     private int lvl = 1;
 
-    
-	// Use this for initialization
-	void Start () {
+    public int Lvl
+    {
+        get { return lvl; }
+    }
+
+    public int Credit
+    {
+        get { return credit; }
+    }
+
+    public int RequiredCredit
+    {
+        get { return requiredCredit; }
+    }
+
+    public int LevelBase
+    {
+        get { return levelBase; }
+    }
+
+    public List<GameObject> Collectables
+    {
+        get { return collectables; }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void AddCredit(int credit)
+    {
+        this.credit += Mathf.Max(0, credit);
+    }
+
+    public void AddCollectables(GameObject collectable)
+    {
+        collectables.Add(collectable);
+    }
+
 }

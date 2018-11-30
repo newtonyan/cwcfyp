@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -17,8 +17,12 @@ MonoBehaviour:
     texturingType: 0
     materials:
     - Materials:
-      - {fileID: 2100000, guid: 5ac0ac96d738c0845b30185d2838f299, type: 2}
+      - {fileID: 2100000, guid: 3e56ece2e1116884a9c9329e2488f105, type: 2}
     - Materials:
-      - {fileID: 2100000, guid: 5ac0ac96d738c0845b30185d2838f299, type: 2}
+      - {fileID: 2100000, guid: 3e56ece2e1116884a9c9329e2488f105, type: 2}
     atlasInfo: {fileID: 0}
+    lightStyleOpacity: 1
+    darkStyleOpacity: 1
+    colorStyleColor: {r: 1, g: 1, b: 1, a: 1}
+    samplePalettes: 0
     colorPalette: {fileID: 0}
