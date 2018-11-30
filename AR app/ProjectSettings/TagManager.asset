@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - distanceText
+  - Note
+  - WinNote
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - Resume UI
   - 
   - 
   - 
@@ -41,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Button
+    uniqueID: 1215518429
+    locked: 0
+  - name: ActivatorGame
+    uniqueID: 4185452969
+    locked: 0
+  - name: Notes
+    uniqueID: 433794043
     locked: 0
