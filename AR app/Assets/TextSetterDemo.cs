@@ -21,7 +21,7 @@
         private void OnMouseDown()
         {
             Debug.Log(Name);
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 }

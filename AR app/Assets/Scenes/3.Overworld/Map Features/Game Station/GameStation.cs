@@ -9,6 +9,7 @@ public class GameStation : MonoBehaviour {
      * 2 - Woosing
      * 3 - NA
      * 4 - Lake */
+    
 
     public int StationID {
         get { return stationID; }
@@ -16,6 +17,6 @@ public class GameStation : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        // toggle gameStationUI
+        CUHKGameManager.Instance.GUI.toggleGameStation(this.StationID);
     }
 }

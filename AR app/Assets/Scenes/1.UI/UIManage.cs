@@ -14,8 +14,10 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject mission;
     [SerializeField] private GameObject achievement;
     [SerializeField] private GameObject setting;
-    [SerializeField] private GameObject pregame;
+    [SerializeField] private GameObject gamestation;
+
     [SerializeField] private GameObject story;
+
     [SerializeField] private GameObject SettingButton;
     [SerializeField] private GameObject AchievementButton;
     [SerializeField] private GameObject MissionButton;
@@ -25,6 +27,11 @@ public class UIManage : MonoBehaviour
 
     [SerializeField] private AudioClip buttonSound;
     private AudioSource audioSource;
+
+    public GameObject Story
+    {
+        get { return story; }
+    }
 
     private void Awake()
      {
@@ -37,13 +44,14 @@ public class UIManage : MonoBehaviour
         Assert.IsNotNull(mission);
         Assert.IsNotNull(achievement);
         Assert.IsNotNull(setting);
-        Assert.IsNotNull(pregame);
+        Assert.IsNotNull(gamestation);
         Assert.IsNotNull(story);
         Assert.IsNotNull(SettingButton);
         Assert.IsNotNull(AchievementButton);
         Assert.IsNotNull(MissionButton);
         Assert.IsNotNull(ProfileBadge);
-
+        
+        //audio
         Assert.IsNotNull(buttonSound);
         Assert.IsNotNull(audioSource);
      }
@@ -60,29 +68,26 @@ public class UIManage : MonoBehaviour
 
     public void toggleMission()
     {
+        ButtonClicked();
         mission.SetActive(!mission.activeSelf);
     }
 
     public void toggleAchievement()
     {
+        ButtonClicked();
         achievement.SetActive(!achievement.activeSelf);
     }
 
     public void toggleSetting()
     {
+        ButtonClicked();
         setting.SetActive(!setting.activeSelf);
     }
 
 
-    public void toggleStory()
-    {
-        story.SetActive(!story.activeSelf);
-    }
-
     public void ButtonClicked()
     {
         audioSource.PlayOneShot(buttonSound);
-        toggleSetting();
     }
 
 
@@ -105,16 +110,28 @@ public class UIManage : MonoBehaviour
         updateLevel();
         updateCredit();
     }
-        
-    public void togglePregame()
+
+    private int currentGSID = 0;
+
+    public void toggleGameStation(int ID)
     {
-        pregame.SetActive(!pregame.activeSelf);
-        SettingButton.SetActive(!SettingButton.activeSelf);
-        AchievementButton.SetActive(!AchievementButton.activeSelf);
-        MissionButton.SetActive(!MissionButton.activeSelf);
-        ProfileBadge.SetActive(!ProfileBadge.activeSelf);
-        Map.SetActive(!Map.activeSelf);
-        //PregameButton.SetActive(!PregameButton.activeSelf);
+        ButtonClicked();
+        gamestation.SetActive(!gamestation.activeSelf);
+        currentGSID = ID;
+        //Debug.Log(currentGSID);
+    }
+
+    private void toggleGame()
+    {
+
+    }
+
+    private void toggleStory()
+    {
+        ButtonClicked();
+        Story content = story.GetComponent<Story>();
+        content.setText(currentGSID); 
+        story.SetActive(!story.activeSelf);
     }
 
     public void toggleNextScene()
