@@ -16,9 +16,7 @@ public class CheckPoint : MonoBehaviour
     {
 
         CallFunction = true;
-        Debug.Log("CWC");
-        
-
+        Debug.Log("CWC");    
     }
 
 

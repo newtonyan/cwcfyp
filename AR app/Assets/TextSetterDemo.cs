@@ -7,34 +7,21 @@
 
     public class TextSetterDemo : MonoBehaviour, IFeaturePropertySettable
     {
-        [SerializeField]
-        Text _text;
-        [SerializeField]
-        Image _background;
+        private string Name;
 
         public void Set(Dictionary<string, object> props)
         {
-            _text.text = "";
-
             if (props.ContainsKey("name_en"))
             {
-                _text.text = props["name_en"].ToString();
+                Name = props["name_en"].ToString();
             }
-            else if (props.ContainsKey("house_num"))
-            {
-                _text.text = props["house_num"].ToString();
-            }
-            else if (props.ContainsKey("type"))
-            {
-                _text.text = props["type"].ToString();
-            }
-            RefreshBackground();
+           
         }
 
-        public void RefreshBackground()
+        private void OnMouseDown()
         {
-            RectTransform backgroundRect = _background.GetComponent<RectTransform>();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(backgroundRect);
+            Debug.Log(Name);
+            this.gameObject.SetActive(false);
         }
     }
 }

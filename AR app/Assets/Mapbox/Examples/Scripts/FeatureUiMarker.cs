@@ -72,7 +72,8 @@
 			(_wrapperMarker as RectTransform).sizeDelta = new Vector2(right - left + 20, top - bottom + 20);
 
 			_infoPanel.position = new Vector2(right + 10, top + 10);
-			_info.text = string.Join(" \r\n ", _selectedFeature.Feature.Properties.Select(x => x.Key + " - " + x.Value.ToString()).ToArray());
+            _info.text = string.Join(" \r\n ", _selectedFeature.Feature.Properties.Select(x => x.Key + " - " + x.Value.ToString()).ToArray());
+            //_info.text = "Test";
 		}
 	}
 }

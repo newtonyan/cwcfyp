@@ -11,6 +11,7 @@
 		public void OnMouseUpAsButton()
 		{
 			_marker.Show(_feature);
+            Debug.Log(this.gameObject);
 		}
 
 		internal void Initialize(FeatureUiMarker marker, VectorEntity ve)

@@ -88,7 +88,7 @@ public class UIManage : MonoBehaviour
 
     private void Update()
     {
-       if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
+       /*if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
             if (!setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
             {
                 Debug.Log("CWC");
@@ -101,7 +101,7 @@ public class UIManage : MonoBehaviour
                 //PregameButton.SetActive(!PregameButton.activeSelf);
                 CheckPoint.CallFunction = false;
             
-            }
+            }*/
         updateLevel();
         updateCredit();
     }
