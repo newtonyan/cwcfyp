@@ -8,8 +8,8 @@ public class DebugMovePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        forward = new Vector3(0, 0, 0.1f);
-        right = new Vector3(0.1f, 0, 0);
+        forward = new Vector3(0, 0, 0.3f);
+        right = new Vector3(0.3f, 0, 0);
     }
 	
 	// Update is called once per frame
