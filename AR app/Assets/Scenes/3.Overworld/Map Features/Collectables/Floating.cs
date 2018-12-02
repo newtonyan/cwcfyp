@@ -14,8 +14,8 @@ public class Floating : MonoBehaviour {
     }
 
     void Update () {
-        Vector3 tempPos = startPos;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * floatFreq) * floatAmp;
+        Vector3 tempPos = startPos + Vector3.up * 5;
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * floatFreq) * floatAmp + 1;
         transform.position = tempPos;
 	}
 }

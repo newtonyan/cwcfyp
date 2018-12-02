@@ -4,10 +4,12 @@
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UI;
+    using TMPro;
 
     public class Collectable : MonoBehaviour, IFeaturePropertySettable
     {
         private string poiname;
+        private string poiname_ch;
         private string poiLocalRank;
         /*private string[] poiList = new string[] {
             "Chung Chi College",
@@ -35,7 +37,7 @@
             {7, "C. W. Chu College"},
             {8, "Wu Yee Sun College"},
             {12, "Pavilion of Harmony"},
-            {13, "New Asia Concourse"},
+            //{13, "New Asia Concourse"},
             {14, "New Asia Water Tower"},
             {15, "University Gymnasium"},
             {16, "Chung Chi Gate"},
@@ -45,8 +47,33 @@
             {20, "The Four Pillars"}
         };
 
-        
+        Dictionary<string, string> poiDict_chi = new Dictionary<string, string>() {
+            {"Chung Chi College","崇基學院"},
+            {"New Asia College","新亞書院"},
+            {"United College","聯合書院"},
+            {"Shaw College","逸夫書院"},
+            {"Morningside College","晨興書院"},
+            {"S.H. Ho College","善衡書院"},
+            {"C. W. Chu College","敬文書院"},
+            {"Wu Yee Sun College","伍宜孫書院"},
+            {"Pavilion of Harmony","合一亭"},
+            //{"New Asia Concourse","新亞圓形廣場"},
+            {"New Asia Water Tower","新亞水塔"},
+            {"University Gymnasium","大學體育館"},
+            {"Chung Chi Gate","崇基門"},
+            {"University Science Centre","科學館"},
+            {"Satellite Remote Sensing Receiving Station","UC波"},
+            {"College Chapel","崇基學院禮拜堂"},
+            {"The Four Pillars","四條柱"}
+        };
+
+        private bool collected = false;
+
         [SerializeField] private int id;
+        [SerializeField] TextMeshPro text;
+
+        [SerializeField] private Material[] materials;
+        private MeshRenderer mrend;
 
         public int Id
         {
@@ -56,6 +83,11 @@
         public string Poiname
         {
             get { return poiname; }
+        }
+
+        public string Poiname_ch
+        {
+            get { return poiname_ch; }
         }
 
         public string PoiLocalRank
@@ -83,11 +115,25 @@
 
         private void OnMouseDown()
         {
-            Debug.Log(poiname + " " + id);
+            if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(this.gameObject))
+            {
+                CUHKSceneManager[] sceneManagers = FindObjectsOfType<CUHKSceneManager>();
+                foreach (CUHKSceneManager manager in sceneManagers)
+                {
+                    if (manager.gameObject.activeSelf)
+                    {
+                        manager.collectableTapped(this.gameObject);
+                    }
+                }
+                mrend.sharedMaterial = materials[id-1];
+            }
+            else Debug.Log(poiname + " exists already!");
+            Debug.Log(poiname + " " + poiname_ch + " " + id);
         }
 
         void Start()
         {
+            mrend = GetComponent<MeshRenderer>();
             if (id != 16 && id != 20 && id != 14)
             {
                 if (!poiDict.ContainsValue(poiname))
@@ -119,6 +165,20 @@
                     Destroy(this.gameObject);
                 }
             }
+
+            TranslateName();
+
+            text.SetText(poiname_ch);
+
+            if (CUHKGameManager.Instance.CurrentPlayer.collectableExist(this.gameObject))
+            {
+                mrend.sharedMaterial = materials[id-1];
+            }
+        }
+
+        void Update()
+        {
+            
         }
 
         private string GetValueByKey(Dictionary<int, string> dict,int key) 
@@ -126,6 +186,22 @@
             if (dict.ContainsKey(key))
             {
                 foreach (KeyValuePair<int, string> pair in dict)
+                {
+                    if (key == pair.Key)
+                    {
+                        return pair.Value;
+                    }
+                }
+                return "";
+            }
+            else return "";
+        }
+
+        private string GetValueByKey(Dictionary<string, string> dict, string key)
+        {
+            if (dict.ContainsKey(key))
+            {
+                foreach (KeyValuePair<string, string> pair in dict)
                 {
                     if (key == pair.Key)
                     {
@@ -151,6 +227,16 @@
                 return 0;
             }
             else return 0;
+        }
+
+        private void TranslateName()
+        {
+            try
+            {
+                poiname_ch = GetValueByKey(poiDict_chi, poiname);
+            }
+            catch
+            {}         
         }
     }
 }

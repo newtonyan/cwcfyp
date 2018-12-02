@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OverworldSceneManager : CUHKSceneManager {
 
+    [SerializeField] private int collectableBonus = 2;
+
     public override void buildingTapped(GameObject building)
     {
         
@@ -13,25 +15,16 @@ public class OverworldSceneManager : CUHKSceneManager {
     {
         
     }
-
+    
     public override void collectableTapped(GameObject collectable)
     {
-       
+        CUHKGameManager.Instance.CurrentPlayer.AddCredit(collectableBonus);
+        CUHKGameManager.Instance.CurrentPlayer.AddCollectables(collectable);
     }
 
     public override void playerTapped(GameObject player)
     {
         
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 }

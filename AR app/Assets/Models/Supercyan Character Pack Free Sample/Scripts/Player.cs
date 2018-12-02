@@ -50,4 +50,13 @@ public class Player : MonoBehaviour {
         collectables.Add(collectable);
     }
 
+    public bool collectableExist(GameObject collectable)
+    {
+        if (collectables.Contains(collectable))
+        {
+            return true;
+        }
+        else return false;
+    }
+
 }
