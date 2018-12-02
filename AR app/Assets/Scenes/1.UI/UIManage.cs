@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Mapbox.Utils;
+using TMPro;
 
 public class UIManage : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject ProfileBadge;
     [SerializeField] private Canvas MainCanvas;
     [SerializeField] private GameObject Map;
+
+    [SerializeField] private GameObject CurrentLocation;
+    [SerializeField] private TextMeshProUGUI MapZoneText;
 
     [SerializeField] private AudioClip buttonSound;
     private AudioSource audioSource;
@@ -139,5 +144,15 @@ public class UIManage : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void getGPSlocation(Vector2d currentLocation)
+    {
+        MapZone zone = GetComponent<MapZone>();
+        string zone_name, zone_name_ch;
+        zone_name = zone.GetAreaName(currentLocation);
+        zone_name_ch = zone.GetValueByKey(zone_name);
+        Debug.Log(zone_name);
+
+        MapZoneText.text = zone_name_ch;
+    }
     
 }
