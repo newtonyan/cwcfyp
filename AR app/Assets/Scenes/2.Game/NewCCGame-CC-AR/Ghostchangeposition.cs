@@ -12,7 +12,7 @@ public class Ghostchangeposition : MonoBehaviour
             ghost.SetActive(false);
         }*/
     }
-    public void Update()
+    /*public void Update()
     {
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
         foreach (GameObject go in allObjects)
@@ -23,7 +23,7 @@ public class Ghostchangeposition : MonoBehaviour
                 Destroy(go);
             }
         }
-    }
+    }*/
     void OnCollisionEnter(Collision col)
  {
         Debug.Log(col.gameObject.tag);
