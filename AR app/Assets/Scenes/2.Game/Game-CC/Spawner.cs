@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour {
         {
             randEnemy = Random.Range(0,2);
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(1, 5), Random.Range(-spawnValues.z, spawnValues.z));
-            if ((spawnPosition.x >= -14 && spawnPosition.x <= 14) && (spawnPosition.z <= 14 && spawnPosition.z >= -14))
+            if ((spawnPosition.x >= -18 && spawnPosition.x <= 18) && (spawnPosition.z <= 18 && spawnPosition.z >= -18))
             {
                 yield return new WaitForSeconds(spawnWait);
             }
@@ -44,6 +44,9 @@ public class Spawner : MonoBehaviour {
                 var newenemy=Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 enemies[randEnemy].SetActive(true);
                 newenemy.transform.parent = newparent.transform;
+                //newenemy.GetComponent<MeshCollider>().enabled = true;
+                //newenemy.GetComponent<MeshRenderer>().enabled = true;
+                //newenemy.GetComponent<CapsuleCollider>().enabled = true;
                 yield return new WaitForSeconds(spawnWait);
             }
         }

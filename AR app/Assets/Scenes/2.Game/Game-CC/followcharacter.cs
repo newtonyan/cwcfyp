@@ -13,12 +13,15 @@ public class followcharacter : MonoBehaviour
     {
         target = target.transform;
         agent = GetComponent<NavMeshAgent>();
+        objecttodiable.GetComponent<MeshCollider>().enabled = true;
+        objecttodiable.GetComponent<MeshRenderer>().enabled = true;
+        objecttodiable.GetComponent<CapsuleCollider>().enabled = true;
     }
     // Update is called once per frame
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-            agent.SetDestination(target.position);
+        agent.SetDestination(target.position);
         Facetarget();
         if (distance<= lookradius && distance != 0)
         {
@@ -27,6 +30,9 @@ public class followcharacter : MonoBehaviour
             objecttodiable.SetActive(false);
             transform.position = transform.TransformPoint(1000, 1000, 1000);
             objecttodiable.SetActive(true);
+            objecttodiable.GetComponent<MeshCollider>().enabled = true;
+            objecttodiable.GetComponent<MeshRenderer>().enabled = true;
+            objecttodiable.GetComponent<CapsuleCollider>().enabled = true;
         }
     }
     void Facetarget()
