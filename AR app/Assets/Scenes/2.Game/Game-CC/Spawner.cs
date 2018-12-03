@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour {
     public float spawnLeastWait;
     public int startWait;
     public bool stop;
-
+    public GameObject newparent;
     int randEnemy;
     // Use this for initialization
     void Start () {
@@ -41,8 +41,9 @@ public class Spawner : MonoBehaviour {
             }
             else
             {
-                Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+                var newenemy=Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 enemies[randEnemy].SetActive(true);
+                newenemy.transform.parent = newparent.transform;
                 yield return new WaitForSeconds(spawnWait);
             }
         }
