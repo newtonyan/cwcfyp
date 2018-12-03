@@ -4,22 +4,29 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class CUHKGameManager : singleton<CUHKGameManager> {
-    [SerializeField] private Player currentPlayer;
+    private Player currentPlayer;
     [SerializeField] private UIManage gui;
 
     public UIManage GUI
     {
-        get { return gui; }
+        get
+        {
+            return gui;
+        }
+        
     }
 
     public Player CurrentPlayer
     {
-        get { return currentPlayer; }
+        get {
+            if (currentPlayer == null)
+            {
+                currentPlayer = gameObject.AddComponent<Player>();
+            }
+            return currentPlayer;
+        }
     }
 
-    private void Awake()
-    {
-        Assert.IsNotNull(currentPlayer);
-    }
+
 
 }

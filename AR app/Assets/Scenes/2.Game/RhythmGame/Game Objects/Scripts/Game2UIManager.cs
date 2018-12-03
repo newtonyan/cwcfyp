@@ -146,6 +146,7 @@ public class Game2UIManager : MonoBehaviour {
     public void ExitButtonPressed()
     {
         SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD, new List<GameObject>());
+        Time.timeScale = 1f;
     }
 
     public void toggleStartMenu()

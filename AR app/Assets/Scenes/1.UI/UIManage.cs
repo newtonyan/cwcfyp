@@ -24,7 +24,6 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject AchievementButton;
     [SerializeField] private GameObject MissionButton;
     [SerializeField] private GameObject ProfileBadge;
-    [SerializeField] private Canvas MainCanvas;
     [SerializeField] private GameObject Map;
 
     [SerializeField] private GameObject CurrentLocation;
@@ -104,6 +103,12 @@ public class UIManage : MonoBehaviour
 
     private int currentGSID = 0;
 
+    public void toggleGameStation()
+    {
+        ButtonClicked();
+        gamestation.SetActive(!gamestation.activeSelf);
+    }
+
     public void toggleGameStation(int ID)
     {
         ButtonClicked();
@@ -116,6 +121,7 @@ public class UIManage : MonoBehaviour
     {
         List<GameObject> move = new List<GameObject>();
         move.Add(CUHKGameManager.Instance.CurrentPlayer.gameObject);
+        move.Add(CUHKGameManager.Instance.GUI.gameObject);
         SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, move);
     }
 
@@ -145,7 +151,7 @@ public class UIManage : MonoBehaviour
 
     public void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
 }

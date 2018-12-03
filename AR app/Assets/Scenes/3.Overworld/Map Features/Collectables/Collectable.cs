@@ -133,6 +133,7 @@
 
         void Start()
         {
+            //DontDestroyOnLoad(this);
             mrend = GetComponent<MeshRenderer>();
             if (id != 16 && id != 20 && id != 14)
             {

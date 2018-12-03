@@ -99,7 +99,6 @@ public class ActivatorGame : MonoBehaviour
     public void Clicked()
     {
         ButtonClicked = true;
-        Debug.Log("clicked");
     }
 
     void AddScore()

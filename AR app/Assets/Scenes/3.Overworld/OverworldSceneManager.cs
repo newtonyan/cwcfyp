@@ -5,6 +5,8 @@ using UnityEngine;
 public class OverworldSceneManager : CUHKSceneManager {
 
     [SerializeField] private int collectableBonus = 2;
+    private GameObject collectable;
+    private AsyncOperation loadScene;
 
     public override void buildingTapped(GameObject building)
     {
