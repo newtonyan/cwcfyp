@@ -9,6 +9,5 @@ public class PPText : MonoBehaviour {
 
 	void Update () {
 		GetComponent<Text>().text=PlayerPrefs.GetInt(name)+"";
-    
 	}
 }

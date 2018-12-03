@@ -27,6 +27,17 @@ public class dembeat : MonoBehaviour {
             anim.Play("stomp");
 
         }
+
+        
     }
 
+    public void playclapanim()
+    {
+        anim.Play("clap");
+    }
+
+    public void playstompanim()
+    {
+        anim.Play("stomp");
+    }
 }

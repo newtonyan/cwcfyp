@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        DontDestroyOnLoad(this);
 	}
 	
     public void AddCredit(int credit)

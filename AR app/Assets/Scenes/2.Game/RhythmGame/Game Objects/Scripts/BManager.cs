@@ -7,14 +7,17 @@ public class BManager : MonoBehaviour
 
     int multiplier = 2;
     int streak = 0;
-    public GameObject note, win, lose;
+    public GameObject note;
     // to see whether note reach box collider
     public bool deductPoint = false;
 
     //miss 5 = loss
     int misses = 0;
 
-  
+    [SerializeField] private GameObject gui;
+
+
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Note")
@@ -37,13 +40,14 @@ public class BManager : MonoBehaviour
     {
         //win game
         Debug.Log("So strong");
+        Game2UIManager manager = gui.GetComponent<Game2UIManager>();
         if (PlayerPrefs.GetInt("Score") > 100)
         {
-            win.SetActive(true);
+            manager.Win();
         }
 
         else
-            lose.SetActive(true);
+            manager.Lose();
     }
 
     public void AddStreak()
@@ -75,6 +79,6 @@ public class BManager : MonoBehaviour
     public int GetScore()
     {
         return 1 * multiplier;
-
     }
+
 }

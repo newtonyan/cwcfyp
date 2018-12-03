@@ -98,20 +98,6 @@ public class UIManage : MonoBehaviour
 
     private void Update()
     {
-       /*if (CheckPoint.CallFunction == true && !setting.activeInHierarchy && !achievement.activeInHierarchy && !mission.activeInHierarchy)
-            if (!setting.activeInHierarchy && !achievement.activeInHierarchy && ! mission.activeInHierarchy)
-            {
-                Debug.Log("CWC");
-                pregame.SetActive(!pregame.activeSelf);
-                SettingButton.SetActive(!SettingButton.activeSelf);
-                AchievementButton.SetActive(!AchievementButton.activeSelf);
-                MissionButton.SetActive(!MissionButton.activeSelf);
-                ProfileBadge.SetActive(!ProfileBadge.activeSelf);
-                Map.SetActive(!Map.activeSelf);
-                //PregameButton.SetActive(!PregameButton.activeSelf);
-                CheckPoint.CallFunction = false;
-            
-            }*/
         updateLevel();
         updateCredit();
     }
@@ -128,7 +114,9 @@ public class UIManage : MonoBehaviour
 
     private void toggleGame()
     {
-
+        List<GameObject> move = new List<GameObject>();
+        move.Add(CUHKGameManager.Instance.CurrentPlayer.gameObject);
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, move);
     }
 
     private void toggleStory()
@@ -154,5 +142,10 @@ public class UIManage : MonoBehaviour
 
         MapZoneText.text = zone_name_ch;
     }
-    
+
+    public void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
+
 }

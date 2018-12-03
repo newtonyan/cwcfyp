@@ -109,7 +109,7 @@ public class ActivatorGame : MonoBehaviour
 
     IEnumerator Pressed()
     {
-        sr.color = new Color(0, 0, 0);
+        sr.color = new Color(0,0,0);
         yield return new WaitForSeconds(0.05f);
         sr.color = old;
     }
