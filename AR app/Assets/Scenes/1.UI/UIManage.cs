@@ -23,7 +23,7 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject SettingButton;
     [SerializeField] private GameObject AchievementButton;
     [SerializeField] private GameObject MissionButton;
-    [SerializeField] private GameObject ProfileBadge;
+    [SerializeField] private GameObject MapButton;
     [SerializeField] private GameObject Map;
 
     [SerializeField] private GameObject CurrentLocation;
@@ -53,7 +53,6 @@ public class UIManage : MonoBehaviour
         Assert.IsNotNull(SettingButton);
         Assert.IsNotNull(AchievementButton);
         Assert.IsNotNull(MissionButton);
-        Assert.IsNotNull(ProfileBadge);
         
         //audio
         Assert.IsNotNull(buttonSound);
@@ -125,7 +124,7 @@ public class UIManage : MonoBehaviour
         SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, move);
     }
 
-    private void toggleStory()
+    public void toggleStory()
     {
         ButtonClicked();
         Story content = story.GetComponent<Story>();
