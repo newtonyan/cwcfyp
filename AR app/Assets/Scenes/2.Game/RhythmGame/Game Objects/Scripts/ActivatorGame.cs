@@ -46,6 +46,7 @@ public class ActivatorGame : MonoBehaviour
             {
 
                 StartCoroutine(Pressed());
+                Debug.Log("the button is clicked and passed to activator game");
             }
                 
 
@@ -55,11 +56,13 @@ public class ActivatorGame : MonoBehaviour
                 gm.GetComponent<BManager>().AddStreak();
                 AddScore();
                 active = false;
+                Debug.Log("button clicked and note destroyed");
               
             }
             else if ((Input.GetKeyDown(key) || ButtonClicked) && !active)
             {
                 gm.GetComponent<BManager>().ResetStreak();
+                PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")-1);
 
             }
 

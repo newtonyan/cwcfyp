@@ -18,10 +18,15 @@ public class BManager : MonoBehaviour
 
 
 
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Note")
+        {
             note = col.gameObject;
+            //PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")-1);
+        }
+            
         deductPoint = true;
         misses++;
         if (misses == 5){
@@ -41,7 +46,7 @@ public class BManager : MonoBehaviour
         //win game
         Debug.Log("So strong");
         Game2UIManager manager = gui.GetComponent<Game2UIManager>();
-        if (PlayerPrefs.GetInt("Score") > 100)
+        if (PlayerPrefs.GetInt("Score") > 150)
         {
             manager.Win();
         }
