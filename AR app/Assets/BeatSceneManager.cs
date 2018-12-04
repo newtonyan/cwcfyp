@@ -7,7 +7,7 @@ public class BeatSceneManager : CUHKSceneManager {
     {
     }
 
-    public override void collectableTapped(GameObject collectable)
+    public override void collectableTapped(int collectable)
     {
     }
 

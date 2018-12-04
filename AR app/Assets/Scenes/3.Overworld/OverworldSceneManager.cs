@@ -18,11 +18,13 @@ public class OverworldSceneManager : CUHKSceneManager {
         
     }
     
-    public override void collectableTapped(GameObject collectable)
+    public override void collectableTapped(int collectable)
     {
         CUHKGameManager.Instance.CurrentPlayer.AddCredit(collectableBonus);
         CUHKGameManager.Instance.CurrentPlayer.AddCollectables(collectable);
     }
+
+
 
     public override void playerTapped(GameObject player)
     {

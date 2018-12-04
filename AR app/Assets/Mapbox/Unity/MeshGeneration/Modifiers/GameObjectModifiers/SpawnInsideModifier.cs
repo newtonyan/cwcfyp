@@ -40,16 +40,43 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 		private Dictionary<GameObject, List<GameObject>> _objects;
 		private Queue<GameObject> _pool;
 
-		public override void Initialize()
+        /*public override void Initialize()
 		{
 			if (_objects == null || _pool == null)
 			{
 				_objects = new Dictionary<GameObject, List<GameObject>>();
 				_pool = new Queue<GameObject>();
 			}
-		}
+		}*/
 
-		public override void Run(VectorEntity ve, UnityTile tile)
+        public override void Initialize()
+        {
+            if (_objects == null || _pool == null)
+            {
+                _objects = new Dictionary<GameObject, List<GameObject>>();
+                _pool = new Queue<GameObject>();
+            }
+            else
+            {
+                foreach (var pair in _objects)
+                {
+                    foreach (GameObject go in pair.Value)
+                        if (go != null)
+                            Destroy(go);
+                    if (pair.Key != null)
+                        Destroy(pair.Key);
+                }
+                _objects.Clear();
+                while (_pool.Count > 0)
+                {
+                    GameObject go = _pool.Dequeue();
+                    if (go != null)
+                        Destroy(go);
+                }
+            }
+        }
+
+        public override void Run(VectorEntity ve, UnityTile tile)
 		{
 			_spawnedCount = 0;
 			var collider = ve.GameObject.GetComponent<Collider>();

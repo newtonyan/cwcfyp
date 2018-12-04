@@ -115,14 +115,14 @@
 
         private void OnMouseDown()
         {
-            if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(this.gameObject))
+            if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
             {
                 CUHKSceneManager[] sceneManagers = FindObjectsOfType<CUHKSceneManager>();
                 foreach (CUHKSceneManager manager in sceneManagers)
                 {
                     if (manager.gameObject.activeSelf)
                     {
-                        manager.collectableTapped(this.gameObject);
+                        manager.collectableTapped(id);
                     }
                 }
                 mrend.sharedMaterial = materials[id-1];
@@ -171,7 +171,7 @@
 
             text.SetText(poiname_ch);
 
-            if (CUHKGameManager.Instance.CurrentPlayer.collectableExist(this.gameObject))
+            if (CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
             {
                 mrend.sharedMaterial = materials[id-1];
             }

@@ -79,6 +79,12 @@ public class UIManage : MonoBehaviour
     {
         ButtonClicked();
         achievement.SetActive(!achievement.activeSelf);
+        GameObject[] inventory = GameObject.FindGameObjectsWithTag("Collectables");
+        foreach (GameObject obj in inventory)
+        {
+            Debug.Log("Collectables");
+            obj.GetComponent<inventory>().checkStatus();
+        }
     }
 
     public void toggleSetting()
@@ -116,12 +122,12 @@ public class UIManage : MonoBehaviour
         //Debug.Log(currentGSID);
     }
 
-    private void toggleGame()
+    public void toggleGame()
     {
         List<GameObject> move = new List<GameObject>();
         move.Add(CUHKGameManager.Instance.CurrentPlayer.gameObject);
         move.Add(CUHKGameManager.Instance.GUI.gameObject);
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, move);
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_TEST, move);
     }
 
     public void toggleStory()

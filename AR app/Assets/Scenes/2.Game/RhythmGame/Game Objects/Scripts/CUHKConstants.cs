@@ -9,4 +9,5 @@ public static class CUHKConstants {
     public static string SCENE_GAME2 = "Beat";
     public static string SCENE_GAME3 = "Song";
     public static string SCENE_GAME4 = "Lake";
+    public static string SCENE_TEST = "SceneTransitionTest";
 }

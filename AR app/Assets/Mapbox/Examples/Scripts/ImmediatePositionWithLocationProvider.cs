@@ -6,8 +6,10 @@
 
 	public class ImmediatePositionWithLocationProvider : MonoBehaviour
 	{
-		//[SerializeField]
-		//private UnifiedMap _map;
+        //[SerializeField]
+        //private UnifiedMap _map;
+
+        [SerializeField] private GameObject GUI;
 
 		bool _isInitialized;
 
@@ -39,7 +41,7 @@
 				var map = LocationProviderFactory.Instance.mapManager;
 				transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
                 Debug.Log(LocationProvider.CurrentLocation.LatitudeLongitude);
-                //CUHKGameManager.Instance.GUI.getGPSlocation(LocationProvider.CurrentLocation.LatitudeLongitude);
+                GUI.GetComponent<UIManage>().getGPSlocation(LocationProvider.CurrentLocation.LatitudeLongitude);
 			}
 		}
 	}

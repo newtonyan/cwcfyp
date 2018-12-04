@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private int credit = 0;
     [SerializeField] private int requiredCredit = 123;
     [SerializeField] private int levelBase = 100;
-    [SerializeField] private List<GameObject> collectables = new List<GameObject>();
+    [SerializeField] private List<int> collectables = new List<int>();
     private int lvl = 1;
 
     public int Lvl
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
         get { return levelBase; }
     }
 
-    public List<GameObject> Collectables
+    public List<int> Collectables
     {
         get { return collectables; }
     }
@@ -45,12 +45,12 @@ public class Player : MonoBehaviour {
         this.credit += Mathf.Max(0, credit);
     }
 
-    public void AddCollectables(GameObject collectable)
+    public void AddCollectables(int collectable)
     {
         collectables.Add(collectable);
     }
 
-    public bool collectableExist(GameObject collectable)
+    public bool collectableExist(int collectable)
     {
         if (collectables.Contains(collectable))
         {
