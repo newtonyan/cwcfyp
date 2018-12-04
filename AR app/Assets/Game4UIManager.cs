@@ -1,15 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Game2UIManager : MonoBehaviour {
+public class Game4UIManager : MonoBehaviour
+{
 
     [SerializeField] private GameObject pauseBtn;
-    [SerializeField] private GameObject stompBtn;
-    [SerializeField] private GameObject clapBtn;
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject resumeBtn;
@@ -21,25 +20,23 @@ public class Game2UIManager : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI pauseMsg;
 
-    [SerializeField] private TextMeshProUGUI multiplierText;
+    [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI streakText;
 
+    [SerializeField] private GameObject shootBtn;
+
+    [SerializeField] private AudioClip getHitSound;
+    [SerializeField] private AudioClip shootSound;
+
+    private AudioSource audioSource;
+
+    public GameObject bulletprefab;
 
     public GameObject PauseBtn
     {
         get { return pauseBtn; }
     }
 
-    public GameObject StompBtn
-    {
-        get { return stompBtn; }
-    }
-
-    public GameObject ClapBtn
-    {
-        get { return clapBtn; }
-    }
 
     public GameObject PauseMenu
     {
@@ -61,20 +58,16 @@ public class Game2UIManager : MonoBehaviour {
         get { return pauseMsg; }
     }
 
-    public TextMeshProUGUI MultiplierText
+    public TextMeshProUGUI TimeText
     {
-        get { return multiplierText; }
+        get { return timeText; }
     }
 
     public TextMeshProUGUI ScoreText
     {
         get { return scoreText; }
-    } 
-
-    public TextMeshProUGUI StreakText
-    {
-        get { return streakText; }
     }
+
 
     public GameObject StartMenu
     {
@@ -89,9 +82,7 @@ public class Game2UIManager : MonoBehaviour {
         toggleResumeButton();
         toggleExitButton();
         pauseBtn.GetComponent<Button>().enabled = false;
-        clapBtn.GetComponent<Button>().enabled = false;
-        stompBtn.GetComponent<Button>().enabled = false;
-        PauseAudio();
+        shootBtn.GetComponent<Button>().enabled = false;
     }
 
     public void Win()
@@ -101,8 +92,7 @@ public class Game2UIManager : MonoBehaviour {
         toggleRestartButton();
         toggleExitButton();
         pauseBtn.GetComponent<Button>().enabled = false;
-        clapBtn.GetComponent<Button>().enabled = false;
-        stompBtn.GetComponent<Button>().enabled = false;
+        shootBtn.GetComponent<Button>().enabled = false;
     }
 
     public void Lose()
@@ -112,8 +102,7 @@ public class Game2UIManager : MonoBehaviour {
         toggleRestartButton();
         toggleExitButton();
         pauseBtn.GetComponent<Button>().enabled = false;
-        clapBtn.GetComponent<Button>().enabled = false;
-        stompBtn.GetComponent<Button>().enabled = false;
+        shootBtn.GetComponent<Button>().enabled = false;
     }
 
     private void Pause()
@@ -123,36 +112,38 @@ public class Game2UIManager : MonoBehaviour {
 
     private void Resume()
     {
-        Time.timeScale = 1f;
+        StartCoroutine(delay());
     }
 
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 1f;
+    }
     public void ResumeButtonPressed()
     {
         Resume();
-        ResumeAudio();
         togglePauseMenu();
         toggleResumeButton();
         toggleExitButton();
         pauseBtn.GetComponent<Button>().enabled = true;
-        clapBtn.GetComponent<Button>().enabled = true;
-        stompBtn.GetComponent<Button>().enabled = true;
+        shootBtn.GetComponent<Button>().enabled = true;
     }
 
     public void RestartButtonPressed()
     {
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, new List<GameObject>());
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME4, new List<GameObject>());
     }
 
     public void ExitButtonPressed()
     {
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME4, new List<GameObject>());
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD, new List<GameObject>());
         Time.timeScale = 1f;
     }
 
     public void toggleStartMenu()
     {
-            startMenu.SetActive(!startMenu.activeSelf);
-            planeFinder.SetActive(false);
+        startMenu.SetActive(!startMenu.activeSelf);
     }
 
     public void togglePauseMenu()
@@ -180,38 +171,64 @@ public class Game2UIManager : MonoBehaviour {
         scoreText.text = PlayerPrefs.GetInt("Score") + "";
     }
 
-    public void setMultiplierText()
+    public void setTimeText()
     {
-        multiplierText.text = "Bonus : " +PlayerPrefs.GetInt("Multiplier") + "" +"X";
+        timeText.text = "Time : " + time;
     }
 
-    public void setStreakText()
-    {
-        streakText.text = "Streak : " + PlayerPrefs.GetInt("Streak") + "";
-    }
-
-    public void PauseAudio()
-    {
-        AudioListener.pause = true;
-    }
-
-
-    public void ResumeAudio()
-    {
-        AudioListener.pause = false;
-    }
+    [SerializeField] private int time;
+    [SerializeField] private int winScore;
+    private int objectPlacedCount = 0;
 
     public void Update()
     {
         setScoreText();
-        setMultiplierText();
-        setStreakText();
     }
 
     public void Start()
     {
-        Time.timeScale = 1f;
-        ResumeAudio();
+        PlayerPrefs.SetInt("Score", 0);
+        setTimeText();
+        audioSource = GetComponent<AudioSource>();
     }
+
+    public void GameStart()
+    {
+        Time.timeScale = 1f;
+        if (objectPlacedCount < 1)
+        {
+            StartCoroutine(Counter());
+        }
+        objectPlacedCount++;
+    }
+
+    IEnumerator Counter()
+    {
+        while (time>0)
+        {
+            if (PlayerPrefs.GetInt("Score") >= winScore)
+            {
+                Time.timeScale = 0f;
+                Win();
+                yield return 0;
+            }
+            yield return new WaitForSeconds(1);
+            time--;
+            setTimeText();
+
+        }
+        Lose();
+    }
+
+    public void shoot()
+    {
+        audioSource.PlayOneShot(shootSound);
+    }
+
+    public void getHit()
+    {
+        audioSource.PlayOneShot(getHitSound);
+    }
+
 
 }

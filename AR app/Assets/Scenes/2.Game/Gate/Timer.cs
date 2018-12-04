@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
     public int timeLeft = 60;
     public Text countdownText;
-
+    public Button endbut;
+    public Text win;
     // Use this for initialization
     void Start () {
         StartCoroutine("LoseTime");
@@ -19,7 +20,9 @@ public class Timer : MonoBehaviour {
         if (timeLeft <= 0)
         {
             StopCoroutine("LoseTime");
-            countdownText.text = "Times Up!";
+            Time.timeScale = 0;
+            endbut.enabled = false;
+            win.text = "You Win!"; 
         }
 	}
 

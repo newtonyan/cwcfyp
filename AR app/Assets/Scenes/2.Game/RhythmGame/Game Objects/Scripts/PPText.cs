@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class PPText : MonoBehaviour {
 
-	public string name;
+	public string name1;
 
 
 	void Update () {
-		GetComponent<Text>().text=PlayerPrefs.GetInt(name)+"";
+		GetComponent<Text>().text=PlayerPrefs.GetInt(name1)+"";
 	}
 }

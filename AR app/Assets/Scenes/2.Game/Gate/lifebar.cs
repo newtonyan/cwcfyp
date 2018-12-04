@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 public class lifebar : MonoBehaviour {
+    [SerializeField] private GameObject GUI;
     public GameObject PillarA;
     public GameObject PillarB;
     private int lastFrame = 0; // 0 if position < line, 1 if position >= line
@@ -52,7 +53,7 @@ public class lifebar : MonoBehaviour {
         if(thisFrame != lastFrame && pos.x > posA.x && pos.x < posB.x)
         {
             //Debug.Log("Pass through " + "Last= " + lastFrame + "This= " + thisFrame);
-            Globallifebar.health--;
+            PlayerPrefs.SetInt("Life",PlayerPrefs.GetInt("Life")-1);
             Debug.Log(Globallifebar.health);
         }
         lastFrame = thisFrame;

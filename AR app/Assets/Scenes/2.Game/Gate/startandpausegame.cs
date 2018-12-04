@@ -23,8 +23,6 @@ public class startandpausegame : MonoBehaviour {
     void Start() {
         Debug.Log("Not Yet Started");
         Time.timeScale = 0;
-        male1.enabled = false;
-
     }
     private void Update()
     {
@@ -44,8 +42,12 @@ public class startandpausegame : MonoBehaviour {
     public void startgame()
     {
         Time.timeScale = 1;
-        restartButton.enabled = false;
+        restartButton.enabled  =false;
         male1.enabled = true;
+        male2.enabled = true;
+        male3.enabled = true;
+        male4.enabled = true;
+        male6.enabled = true;
     }
 
     
