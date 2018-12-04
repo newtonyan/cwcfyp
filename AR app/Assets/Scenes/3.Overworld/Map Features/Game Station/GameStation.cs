@@ -5,10 +5,10 @@ using UnityEngine;
 public class GameStation : MonoBehaviour {
     [SerializeField] private int stationID;
     /* Station ID List:
-     * 1 - Gate of Wisdom
-     * 2 - Woosing
-     * 3 - NA
-     * 4 - Lake */
+     * 10 - Gate of Wisdom
+     * 9 - Woosing
+     * 13 - NA
+     * 11 - Lake */
 
     public int StationID {
         get { return stationID; }

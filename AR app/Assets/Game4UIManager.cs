@@ -93,6 +93,11 @@ public class Game4UIManager : MonoBehaviour
         toggleExitButton();
         pauseBtn.GetComponent<Button>().enabled = false;
         shootBtn.GetComponent<Button>().enabled = false;
+        CUHKGameManager.Instance.CurrentPlayer.AddCredit(3);
+        if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(11))
+        {
+            CUHKGameManager.Instance.CurrentPlayer.AddCollectables(11);
+        }
     }
 
     public void Lose()

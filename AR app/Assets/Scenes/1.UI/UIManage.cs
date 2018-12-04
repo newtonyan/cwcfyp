@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Mapbox.Utils;
 using TMPro;
+using Mapbox.Unity.Map;
 
 public class UIManage : MonoBehaviour
 {
@@ -15,8 +16,15 @@ public class UIManage : MonoBehaviour
 
     [SerializeField] private GameObject mission;
     [SerializeField] private GameObject achievement;
+
     [SerializeField] private GameObject setting;
+    [SerializeField] private GameObject chBtn;
+    [SerializeField] private GameObject chBtnGrey;
+    [SerializeField] private GameObject engBtn;
+    [SerializeField] private GameObject engBtnGrey;
+
     [SerializeField] private GameObject gamestation;
+    [SerializeField] private GameObject miniMap;
 
     [SerializeField] private GameObject story;
 
@@ -25,6 +33,8 @@ public class UIManage : MonoBehaviour
     [SerializeField] private GameObject MissionButton;
     [SerializeField] private GameObject MapButton;
     [SerializeField] private GameObject Map;
+    [SerializeField] private GameObject NotInCUHK;
+    [SerializeField] private GameObject gameUnable;
 
     [SerializeField] private GameObject CurrentLocation;
     [SerializeField] private TextMeshProUGUI MapZoneText;
@@ -41,7 +51,6 @@ public class UIManage : MonoBehaviour
      {
         audioSource = GetComponent<AudioSource>();
 
-
         Assert.IsNotNull(credittext);
         Assert.IsNotNull(leveltext);
 
@@ -57,6 +66,7 @@ public class UIManage : MonoBehaviour
         //audio
         Assert.IsNotNull(buttonSound);
         Assert.IsNotNull(audioSource);
+
      }
 
     public void updateLevel()
@@ -93,12 +103,27 @@ public class UIManage : MonoBehaviour
         setting.SetActive(!setting.activeSelf);
     }
 
+    public void toggleMiniMap()
+    {
+        ButtonClicked();
+        miniMap.SetActive(!miniMap.activeSelf);
+    }
+
 
     public void ButtonClicked()
     {
         audioSource.PlayOneShot(buttonSound);
     }
 
+    public void toggleNotInCUHK()
+    {
+        NotInCUHK.SetActive(true);
+    }
+
+    public void toggleGameUnable()
+    {
+        gameUnable.SetActive(!gameUnable.activeSelf);
+    }
 
     private void Update()
     {
@@ -119,15 +144,41 @@ public class UIManage : MonoBehaviour
         ButtonClicked();
         gamestation.SetActive(!gamestation.activeSelf);
         currentGSID = ID;
-        //Debug.Log(currentGSID);
+        Debug.Log(currentGSID);
     }
 
     public void toggleGame()
     {
-        List<GameObject> move = new List<GameObject>();
-        move.Add(CUHKGameManager.Instance.CurrentPlayer.gameObject);
-        move.Add(CUHKGameManager.Instance.GUI.gameObject);
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_TEST, move);
+        //Debug.Log("toggleGame");
+        if (currentGSID == 10)
+        {
+            SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME1, new List<GameObject>());
+            //Debug.Log("toggleGame1");
+        }
+        else if (currentGSID == 9)
+        {
+            SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, new List<GameObject>());
+            //Debug.Log("toggleGame2");
+        }
+        else if (currentGSID == 13)
+        {
+            SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME3, new List<GameObject>());
+            //Debug.Log("toggleGame3");
+        }
+        else if (currentGSID == 11)
+        {
+            if(CUHKGameManager.Instance.CurrentPlayer.collectableExist(9) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(10) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(13))
+            {
+                SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME4, new List<GameObject>());
+                //Debug.Log("toggleGame4");
+            }
+            else
+            {
+                toggleGameUnable();
+            }
+            
+        }
+
     }
 
     public void toggleStory()
@@ -135,6 +186,14 @@ public class UIManage : MonoBehaviour
         ButtonClicked();
         Story content = story.GetComponent<Story>();
         content.setText(currentGSID); 
+        story.SetActive(!story.activeSelf);
+    }
+
+    public void toggleStory(int id)
+    {
+        ButtonClicked();
+        Story content = story.GetComponent<Story>();
+        content.setText(id);
         story.SetActive(!story.activeSelf);
     }
 
@@ -151,12 +210,61 @@ public class UIManage : MonoBehaviour
         zone_name_ch = zone.GetValueByKey(zone_name);
         Debug.Log(zone_name);
 
-        MapZoneText.text = zone_name_ch;
+        if (CUHKGameManager.Instance.Language)
+        {
+            MapZoneText.text = zone_name_ch;
+        }
+        else
+        {
+            MapZoneText.text = zone_name;
+        }
+        if(zone_name== "not in CUHK")
+        {
+            toggleNotInCUHK();
+        }
+        else
+        {
+            NotInCUHK.SetActive(false);
+        }
+    }
+
+    public void setChinese()
+    {
+        chBtn.SetActive(true);
+        chBtnGrey.SetActive(false);
+        engBtn.SetActive(false);
+        engBtnGrey.SetActive(true);
+        CUHKGameManager.Instance.Language = true;
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD, new List<GameObject>());
+    }
+
+    public void setEnglish()
+    {
+        engBtn.SetActive(true);
+        engBtnGrey.SetActive(false);
+        chBtn.SetActive(false);
+        chBtnGrey.SetActive(true);
+        CUHKGameManager.Instance.Language = false ;
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD, new List<GameObject>());
     }
 
     public void Start()
     {
         //DontDestroyOnLoad(this);
+        if (CUHKGameManager.Instance.Language)
+        {
+            chBtn.SetActive(true);
+            chBtnGrey.SetActive(false);
+            engBtn.SetActive(false);
+            engBtnGrey.SetActive(true);
+        }
+        else
+        {
+            engBtn.SetActive(true);
+            engBtnGrey.SetActive(false);
+            chBtn.SetActive(false);
+            chBtnGrey.SetActive(true);
+        }
     }
 
 }

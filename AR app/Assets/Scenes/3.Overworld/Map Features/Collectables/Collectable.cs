@@ -128,8 +128,30 @@
                 mrend.sharedMaterial = materials[id-1];
             }
             else Debug.Log(poiname + " exists already!");
+
+            CUHKGameManager.Instance.GUI.GetComponent<UIManage>().toggleStory(id);
             Debug.Log(poiname + " " + poiname_ch + " " + id);
         }
+
+        /*private void OnMouseDown()
+        {
+            if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
+            {
+                CUHKSceneManager[] sceneManagers = FindObjectsOfType<CUHKSceneManager>();
+                foreach (CUHKSceneManager manager in sceneManagers)
+                {
+                    if (manager.gameObject.activeSelf)
+                    {
+                        manager.collectableTapped(id);
+                    }
+                }
+                mrend.sharedMaterial = materials[id - 1];
+            }
+            else Debug.Log(poiname + " exists already!");
+
+            CUHKGameManager.Instance.GUI.GetComponent<UIManage>().toggleStory(id);
+            Debug.Log(poiname + " " + poiname_ch + " " + id);
+        }*/
 
         void Start()
         {
@@ -169,7 +191,14 @@
 
             TranslateName();
 
-            text.SetText(poiname_ch);
+            if (CUHKGameManager.Instance.Language)
+            {
+                text.SetText(poiname_ch);
+            }
+            else
+            {
+                text.SetText(poiname);
+            }
 
             if (CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
             {

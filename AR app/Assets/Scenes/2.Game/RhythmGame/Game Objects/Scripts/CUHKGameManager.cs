@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 public class CUHKGameManager : singleton<CUHKGameManager> {
     private Player currentPlayer;
     private GameObject gui;
-    private bool language = true; //false = ENG, true = CHINESE
+    private bool language = false; //false = ENG, true = CHINESE
 
     public GameObject GUI
     {
@@ -35,6 +35,7 @@ public class CUHKGameManager : singleton<CUHKGameManager> {
     public bool Language
     {
         get { return language; }
+        set { Language = language; }
     }
 
     public void toggleLanguage()

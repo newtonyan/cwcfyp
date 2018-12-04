@@ -25,8 +25,12 @@ public class inventory : MonoBehaviour {
 
     void Update()
     {
-        float angle = Mathf.Sin(Time.fixedTime * Mathf.PI * floatFreq) * floatAmp * 2;
-        transform.RotateAround(transform.position,Vector3.up, angle);
+        if(collectableID != 9 && collectableID != 10 && collectableID != 11 && collectableID != 13)
+        {
+            float angle = Mathf.Sin(Time.fixedTime * Mathf.PI * floatFreq) * floatAmp * 2;
+            transform.RotateAround(transform.position, Vector3.up, angle);
+        }
+        
     }
 
     public void checkStatus()
@@ -69,7 +73,7 @@ public class inventory : MonoBehaviour {
             {"C. W. Chu College","敬文書院"},
             {"Wu Yee Sun College","伍宜孫書院"},
             {"Pavilion of Harmony","合一亭"},
-            //{"New Asia Concourse","新亞圓形廣場"},
+            {"New Asia Concourse","新亞圓形廣場"},
             {"New Asia Water Tower","新亞水塔"},
             {"University Gymnasium","大學體育館"},
             {"Chung Chi Gate","崇基門"},

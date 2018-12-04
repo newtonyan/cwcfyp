@@ -8,45 +8,28 @@ using UnityEngine.SceneManagement;
 public class UI1 : MonoBehaviour
 {
 
-    public int time = 12;
-    bool counting = true;
-
     [SerializeField] private GameObject Male1;
-    public void Start()
+    [SerializeField] private GameObject logo;
+    [SerializeField] private int logoTime;
+    [SerializeField] private int playerTime;
+
+    private void Start()
     {
-        StartCoroutine("LoseTime");
+        StartCoroutine(logoCounter());
     }
 
-    private void Update()
+    IEnumerator logoCounter()
     {
-        if (counting)
-        {
-            if (time <= 0)
-            {
-                StopCoroutine("LoseTime");
-                counting = false;
-                Male1.SetActive(!Male1.activeSelf);
-                toggleNextScene();
-            }
-        }
-
+        yield return new WaitForSeconds(logoTime);
+        logo.SetActive(!logo.activeSelf);
+        StartCoroutine(playerCounter());
     }
 
-    IEnumerator LoseTime()
+    IEnumerator playerCounter()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            time--;
-        }
+        yield return new WaitForSeconds(logoTime);
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD,new List<GameObject>());
     }
-
-
-    public void toggleNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
 
 
 }

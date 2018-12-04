@@ -93,6 +93,11 @@ public class Game1UIManager : MonoBehaviour
     public void Win()
     {
         pauseMsg.SetText("You Win !");
+        CUHKGameManager.Instance.CurrentPlayer.AddCredit(3);
+        if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(10))
+        {
+            CUHKGameManager.Instance.CurrentPlayer.AddCollectables(10);
+        }
         togglePauseMenu();
         toggleRestartButton();
         toggleExitButton();
@@ -273,10 +278,12 @@ public class Game1UIManager : MonoBehaviour
 
         }
         if (PlayerPrefs.GetInt("Life") <= 0)
-            {
-                Lose();
-            }
-        else Win();
+        {
+            Lose();
+        }
+        else {
+            Win();     
+        }
     }
 
     public void lostlife()

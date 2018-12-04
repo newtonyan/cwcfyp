@@ -103,6 +103,11 @@ public class Game2UIManager : MonoBehaviour {
         pauseBtn.GetComponent<Button>().enabled = false;
         clapBtn.GetComponent<Button>().enabled = false;
         stompBtn.GetComponent<Button>().enabled = false;
+        CUHKGameManager.Instance.CurrentPlayer.AddCredit(3);
+        if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(9))
+        {
+            CUHKGameManager.Instance.CurrentPlayer.AddCollectables(9);
+        }
     }
 
     public void Lose()
@@ -145,7 +150,7 @@ public class Game2UIManager : MonoBehaviour {
 
     public void ExitButtonPressed()
     {
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME4, new List<GameObject>());
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_WORLD, new List<GameObject>());
         Time.timeScale = 1f;
     }
 

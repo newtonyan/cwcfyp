@@ -90,6 +90,6 @@ public class MapZone : MonoBehaviour {
             return "I-House and Staff Residence";
 
         else
-            return "Hello, you are not in CUHK! Please visit CUHK to discover more!";
+            return "not in CUHK";
     }
 }

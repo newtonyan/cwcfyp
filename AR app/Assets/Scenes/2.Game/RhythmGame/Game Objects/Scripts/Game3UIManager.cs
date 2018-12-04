@@ -103,6 +103,11 @@ public class Game3UIManager : MonoBehaviour {
         pauseBtn.GetComponent<Button>().enabled = false;
         clapBtn.GetComponent<Button>().enabled = false;
         stompBtn.GetComponent<Button>().enabled = false;
+        CUHKGameManager.Instance.CurrentPlayer.AddCredit(3);
+        if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(13))
+        {
+            CUHKGameManager.Instance.CurrentPlayer.AddCollectables(13);
+        }
     }
 
     public void Lose()
@@ -140,7 +145,7 @@ public class Game3UIManager : MonoBehaviour {
 
     public void RestartButtonPressed()
     {
-        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME2, new List<GameObject>());
+        SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME3, new List<GameObject>());
     }
 
     public void ExitButtonPressed()
