@@ -5,6 +5,8 @@
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
+    using UnityEngine.EventSystems;
+    using System.Collections;
 
     public class Collectable : MonoBehaviour, IFeaturePropertySettable
     {
@@ -75,6 +77,7 @@
         [SerializeField] private Material[] materials;
         private MeshRenderer mrend;
 
+
         public int Id
         {
             get { return id; }
@@ -113,28 +116,11 @@
             }      
         }
 
+
+
         private void OnMouseDown()
         {
-            if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
-            {
-                CUHKSceneManager[] sceneManagers = FindObjectsOfType<CUHKSceneManager>();
-                foreach (CUHKSceneManager manager in sceneManagers)
-                {
-                    if (manager.gameObject.activeSelf)
-                    {
-                        manager.collectableTapped(id);
-                    }
-                }
-                mrend.sharedMaterial = materials[id-1];
-            }
-            else Debug.Log(poiname + " exists already!");
-
-            CUHKGameManager.Instance.GUI.GetComponent<UIManage>().toggleStory(id);
-            Debug.Log(poiname + " " + poiname_ch + " " + id);
-        }
-
-        /*private void OnMouseDown()
-        {
+            //StartCoroutine(PressDelay());   
             if (!CUHKGameManager.Instance.CurrentPlayer.collectableExist(id))
             {
                 CUHKSceneManager[] sceneManagers = FindObjectsOfType<CUHKSceneManager>();
@@ -151,10 +137,10 @@
 
             CUHKGameManager.Instance.GUI.GetComponent<UIManage>().toggleStory(id);
             Debug.Log(poiname + " " + poiname_ch + " " + id);
-        }*/
+        }
 
         void Start()
-        {
+        {         
             //DontDestroyOnLoad(this);
             mrend = GetComponent<MeshRenderer>();
             if (id != 16 && id != 20 && id != 14)
@@ -162,6 +148,7 @@
                 if (!poiDict.ContainsValue(poiname))
                 {
                     Destroy(this.gameObject);
+                    return;
                 }
                 else
                 {
@@ -178,6 +165,7 @@
                 if(poiLocalRank != "2")
                 {
                     Destroy(this.gameObject);
+                    return;
                 }
             }
 
@@ -186,6 +174,7 @@
                 if(poiLocalRank != "1")
                 {
                     Destroy(this.gameObject);
+                    return;
                 }
             }
 
@@ -206,9 +195,19 @@
             }
         }
 
+
         void Update()
         {
-            
+            if (CUHKGameManager.Instance.panelsOn)
+            {
+                BoxCollider bc = GetComponent<BoxCollider>();
+                bc.enabled = false;
+            }
+            else
+            {
+                BoxCollider bc = GetComponent<BoxCollider>();
+                bc.enabled = true;
+            }
         }
 
         private string GetValueByKey(Dictionary<int, string> dict,int key) 
@@ -268,5 +267,9 @@
             catch
             {}         
         }
+
+
+       
+
     }
 }

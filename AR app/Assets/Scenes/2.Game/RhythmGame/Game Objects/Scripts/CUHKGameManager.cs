@@ -7,6 +7,7 @@ public class CUHKGameManager : singleton<CUHKGameManager> {
     private Player currentPlayer;
     private GameObject gui;
     private bool language = false; //false = ENG, true = CHINESE
+    public bool panelsOn;
 
     public GameObject GUI
     {

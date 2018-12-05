@@ -10,6 +10,9 @@ public class GameStation : MonoBehaviour {
      * 13 - NA
      * 11 - Lake */
 
+    private bool panelsOn;
+
+
     public int StationID {
         get { return stationID; }
     }
@@ -18,5 +21,20 @@ public class GameStation : MonoBehaviour {
     {
         CUHKGameManager.Instance.GUI.GetComponent<UIManage>().toggleGameStation(this.StationID);
         //GameObject GUI = GameObject.FindGameObjectWithTag("");
+    }
+
+
+    void Update()
+    {
+        if (CUHKGameManager.Instance.panelsOn)
+        {
+            BoxCollider bc = GetComponent<BoxCollider>();
+            bc.enabled = false;
+        }
+        else
+        {
+            BoxCollider bc = GetComponent<BoxCollider>();
+            bc.enabled = true;
+        }
     }
 }

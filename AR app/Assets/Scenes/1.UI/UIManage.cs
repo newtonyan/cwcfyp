@@ -125,11 +125,25 @@ public class UIManage : MonoBehaviour
         gameUnable.SetActive(!gameUnable.activeSelf);
     }
 
+    private GameObject[] panels;
+
     private void Update()
     {
         updateLevel();
         updateCredit();
-    }
+       
+        panels = GameObject.FindGameObjectsWithTag("UI Panels");
+        if (panels.Length == 0)
+        {
+            Debug.Log("No active panels");
+            CUHKGameManager.Instance.panelsOn = false;
+        }
+        else
+        {
+            Debug.Log("active panels");
+            CUHKGameManager.Instance.panelsOn = true;
+        }  
+}
 
     private int currentGSID = 0;
 
