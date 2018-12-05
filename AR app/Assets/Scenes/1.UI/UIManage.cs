@@ -181,15 +181,15 @@ public class UIManage : MonoBehaviour
         }
         else if (currentGSID == 11)
         {
-            if(CUHKGameManager.Instance.CurrentPlayer.collectableExist(9) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(10) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(13))
-            {
+            //if(CUHKGameManager.Instance.CurrentPlayer.collectableExist(9) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(10) && CUHKGameManager.Instance.CurrentPlayer.collectableExist(13))
+            //{
                 SceneTransitionManager.Instance.GoToScene(CUHKConstants.SCENE_GAME4, new List<GameObject>());
                 //Debug.Log("toggleGame4");
-            }
-            else
-            {
-                toggleGameUnable();
-            }
+            //}
+            //else
+            //{
+             //   toggleGameUnable();
+            //}
             
         }
 

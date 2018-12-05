@@ -8,8 +8,6 @@ Confidential and Proprietary - Protected under copyright and other laws.
 
 using UnityEngine;
 using Vuforia;
-using UnityEngine.UI;
-using System.Collections;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -17,12 +15,11 @@ using System.Collections;
 /// Changes made to this file could be overwritten when upgrading the Vuforia version.
 /// When implementing custom event handler behavior, consider inheriting from this class instead.
 /// </summary>
-/// 
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    public static int Tracking = 0;
+    public static int Tracking = 0; //add
 
     protected TrackableBehaviour mTrackableBehaviour;
     protected TrackableBehaviour.Status m_PreviousStatus;
@@ -60,24 +57,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         m_PreviousStatus = previousStatus;
         m_NewStatus = newStatus;
 
-        /*if (newStatus == TrackableBehaviour.Status.DETECTED ||
+        if (newStatus == TrackableBehaviour.Status.DETECTED ||
             newStatus == TrackableBehaviour.Status.TRACKED ||
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            Debug.Log("Game Start");
-            Time.timeScale = 1;
-            OnTrackingFound();
-        }*/
-
-        if (newStatus == TrackableBehaviour.Status.DETECTED ||
-            newStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            Tracking = 1;
+            Tracking = 1; // add
             OnTrackingFound();
         }
-
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NO_POSE)
         {
@@ -137,8 +124,5 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             component.enabled = false;
     }
 
-
     #endregion // PROTECTED_METHODS
 }
-
-

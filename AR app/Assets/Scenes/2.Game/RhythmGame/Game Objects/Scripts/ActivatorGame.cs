@@ -53,7 +53,7 @@ public class ActivatorGame : MonoBehaviour
             if ((Input.GetKeyDown(key)||ButtonClicked) && active)
             {
                 Destroy(note);
-                gm.GetComponent<BManager>().AddStreak();
+                gm.GetComponent<BManagerNA>().AddStreak();
                 AddScore();
                 active = false;
                 Debug.Log("button clicked and note destroyed");
@@ -61,7 +61,7 @@ public class ActivatorGame : MonoBehaviour
             }
             else if ((Input.GetKeyDown(key) || ButtonClicked) && !active)
             {
-                gm.GetComponent<BManager>().ResetStreak();
+                gm.GetComponent<BManagerNA>().ResetStreak();
                 PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")-1);
 
             }
@@ -77,10 +77,10 @@ public class ActivatorGame : MonoBehaviour
 
         if (col.gameObject.tag == "WinNote")
         {
-            gm.GetComponent<BManager>().Win();
+            gm.GetComponent<BManagerNA>().Win();
 
         }
-
+       
         if (col.gameObject.tag == "Note")
         {
             note = col.gameObject;
@@ -91,14 +91,14 @@ public class ActivatorGame : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
 
-        if (gm.GetComponent<BManager>().deductPoint)
+        if (gm.GetComponent<BManagerNA>().deductPoint)
         {
             active = false;
-            gm.GetComponent<BManager>().deductPoint = false;
-            gm.GetComponent<BManager>().ResetStreak();
+            gm.GetComponent<BManagerNA>().deductPoint = false;
+            gm.GetComponent<BManagerNA>().ResetStreak();
         }
     }
-
+   
     public void Clicked()
     {
         ButtonClicked = true;
@@ -106,7 +106,7 @@ public class ActivatorGame : MonoBehaviour
 
     void AddScore()
     {
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + gm.GetComponent<BManager>().GetScore());
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + gm.GetComponent<BManagerNA>().GetScore());
     }
 
     IEnumerator Pressed()

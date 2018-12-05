@@ -217,6 +217,7 @@ public class Game3UIManager : MonoBehaviour {
     {
         Time.timeScale = 1f;
         ResumeAudio();
+        //Win();
     }
 
 }

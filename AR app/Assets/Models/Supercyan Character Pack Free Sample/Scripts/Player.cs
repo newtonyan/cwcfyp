@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         path = Application.persistentDataPath + "/player.dat";
-        load();
+        //load();
         InitLevelData();
     }
 
@@ -53,14 +53,14 @@ public class Player : MonoBehaviour {
     {
         this.credit += Mathf.Max(0, credit);
         InitLevelData();
-        Save();
+        //Save();
     }
 
     public void AddCollectables(int collectable)
     {
         collectables.Add(collectable);
         InitLevelData();
-        Save();
+        //Save();
     }
 
     public bool collectableExist(int collectable)
