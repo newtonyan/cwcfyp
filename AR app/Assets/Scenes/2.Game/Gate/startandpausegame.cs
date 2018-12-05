@@ -8,17 +8,6 @@ public class startandpausegame : MonoBehaviour {
     public int initTrackStatus = 0;
     public int PreTrackStatus = 0;
     public Button restartButton;
-    public moverandomly male1;
-    public moverandomly male2;
-    public moverandomly male3;
-    public moverandomly male4;
-    public moverandomly male5;
-    public moverandomly male6;
-    public moverandomly male7;
-    public moverandomly male8;
-    public moverandomly male9;
-    public moverandomly male10;
-    public moverandomly male11;
 
     void Start() {
         Debug.Log("Not Yet Started");
@@ -43,11 +32,6 @@ public class startandpausegame : MonoBehaviour {
     {
         Time.timeScale = 1;
         restartButton.enabled  =false;
-        male1.enabled = true;
-        male2.enabled = true;
-        male3.enabled = true;
-        male4.enabled = true;
-        male6.enabled = true;
     }
 
     
