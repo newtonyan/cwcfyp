@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
     public int Credit
     {
         get { return credit; }
-        set { credit = Credit; }
+        //set { credit = Credit; }
     }
 
     public int RequiredCredit
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour {
     public List<int> Collectables
     {
         get { return collectables; }
-        set { collectables = Collectables; }
+        //set { collectables = Collectables; }
     }
 
     // Use this for initialization
